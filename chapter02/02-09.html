@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="forExam">
+        <thead>
+            <th>no</th>
+            <th>name</th>
+            <th>index</th>
+        </thead>
+        <th>index</th>
+        <table style="border: solid 1rem;">
+            <tr v-for="(val, key, index) in model">
+                <td>{{val}}</td>
+                <td>{{key}}</td>
+                <td>{{index}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        var model = {
+            "A": "text1",
+            "B": "text2",
+            "C": "text3"
+        }
+        var simple3 = new Vue({
+            el: '#forExam',
+            data: {
+                model: model
+            }
+        });
+    </script>
+</body>
+
+</html>

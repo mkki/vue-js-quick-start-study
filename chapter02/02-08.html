@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="forExam">
+        <thead>
+            <th>no</th>
+            <th>name</th>
+        </thead>
+        <table style="border: solid 1rem;">
+            <tr v-for="content in contents">
+                <td>{{content.no}}</td>
+                <td>{{content.name}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        var model = {
+            "pageno": 1,
+            "pagesize": 5,
+            "totalcount": 10,
+            "contents": [{
+                "no": 100,
+                "name": "first"
+            }, {
+                "no": 101,
+                "name": "second"
+            }]
+        }
+        var simple3 = new Vue({
+            el: '#forExam',
+            data: model
+        });
+    </script>
+</body>
+
+</html>

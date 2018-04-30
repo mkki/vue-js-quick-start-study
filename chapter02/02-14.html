@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="example">
+        <p>
+            국가명 : <input type="text" v-model="countryname" placeholder="국가명" />
+        </p>
+
+        <table id="list">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>국가명</th>
+                    <th>수도</th>
+                    <th>지역</th>
+                </tr>
+            </thead>
+            <tbody id="contacts">
+                <tr v-for="c in filtered">
+                    <td>{{c.no}}</td>
+                    <td>{{c.name}}</td>
+                    <td>{{c.captital}}</td>
+                    <td>{{c.region}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascript">
+        var model = {
+            countryname: "",
+            countries: [{
+                no: 1,
+                name: "미국",
+                captital: "워싱턴",
+                region: "us"
+            }, {
+                no: 2,
+                name: "태국",
+                captital: "워싱턴",
+                region: "tai"
+            }, {
+                no: 3,
+                name: "한국",
+                captital: "워싱턴",
+                region: "kor"
+            }, {
+                no: 4,
+                name: "영국",
+                captital: "워싱턴",
+                region: "uk"
+            }, {
+                no: 5,
+                name: "일본",
+                captital: "워싱턴",
+                region: "jp"
+            }, {
+                no: 6,
+                name: "독일",
+                captital: "워싱턴",
+                region: "gr"
+            }]
+        }
+
+        var clist = new Vue({
+            el: "#example",
+            data: model,
+            computed: {
+                filtered: function() {
+                    var cname = this.countryname.trim();
+                    return this.countries.filter(function(item, index) {
+                        if (item.name.indexOf(cname) > -1) {
+                            return true;
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

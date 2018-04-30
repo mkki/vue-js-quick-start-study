@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="account">
+        예금액: <input type="text" v-model="amount" />
+
+        <span v-if="amount >= 10000"> gold </span>
+        <span v-else-if="amount >= 5000"> silver </span>
+        <span v-else-if="amount >= 1000"> bronze </span>
+    </div>
+
+    <script>
+        var simple3 = new Vue({
+            el: '#account',
+            data: {
+                amount: 0
+            }
+        });
+    </script>
+</body>
+
+</html>

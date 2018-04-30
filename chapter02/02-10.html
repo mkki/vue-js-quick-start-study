@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <style type="text/css">
+        .divider {
+            height: 2px;
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="forExam">
+        <thead>
+            <th>no</th>
+            <th>name</th>
+        </thead>
+        <tbody>
+            <template v-for="(content, index) in contents">
+            <tr>
+                <td>{{content.no}}</td>
+                <td>{{content.name}}</td>
+            </tr>
+            <tr class="divider" v-if="index % 3 == 2">
+                <td colspan="4"></td>
+            </tr>
+        </template>
+        </tbody>
+    </div>
+    <script>
+        var model = {
+            "pageno": 1,
+            "pagesize": 5,
+            "totalcount": 10,
+            "contents": [{
+                "no": 100,
+                "name": "first"
+            }, {
+                "no": 101,
+                "name": "second"
+            }, {
+                "no": 102,
+                "name": "third"
+            }, {
+                "no": 103,
+                "name": "fourth"
+            }]
+        }
+        var simple3 = new Vue({
+            el: '#forExam',
+            data: model
+        });
+    </script>
+</body>
+
+</html>

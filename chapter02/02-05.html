@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="simple1">
+        <div>select fruits</div>
+        <input type="checkbox" value="1" v-model="fruits">사과,
+        <input type="checkbox" value="2" v-model="fruits">포도,
+        <input type="checkbox" value="3" v-model="fruits">딸기,
+        <input type="checkbox" value="4" v-model="fruits">배
+    </div>
+
+    <hr>
+
+    <div id="simple2">
+        selected fruits: <span v-html="fruits"></span>
+    </div>
+
+    <script>
+        var model = {
+            fruits: []
+        }
+        var twoway = new Vue({
+            el: '#simple1',
+            data: model
+        });
+
+        var twoway2 = new Vue({
+            el: '#simple2',
+            data: model
+        });
+    </script>
+</body>
+
+</html>

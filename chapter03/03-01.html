@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="test">
+        {{name}}
+    </div>
+
+    <script>
+        var model = {
+            name: 'sample name'
+        }
+        var simple = new Vue({
+            el: '#test',
+            data: model
+        })
+    </script>
+</body>
+
+</html>
