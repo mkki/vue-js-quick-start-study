@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Vue</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <style>
+        #example {
+            height: 98vh;
+            min-height: 100%;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="example" v-on:contextmenu.prevent="ctxStop" @mouseup.left="leftMouse" @mouseup.right="rightMouse">
+        <div>
+            left : 왼쪽으로 <br> right : 오른쪽으로
+        </div>
+        <img src="../images/foot.jpg" v-bind:style="{ position: 'absolute', left: pos.left + 'px', top: pos.top + 'px' }" />
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#example',
+            data: {
+                pos: {
+                    left: 100,
+                    top: 100
+                }
+            },
+            methods: {
+                ctxStop: function(e) {},
+                leftMouse: function(e) {
+                    if (this.pos.left > 30) {
+                        this.pos.left -= 30;
+                        console.log("move left");
+                    }
+                },
+                rightMouse: function(e) {
+                    this.pos.left += 30;
+                    console.log("move right");
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

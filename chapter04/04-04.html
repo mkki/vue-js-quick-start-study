@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Vue</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="example" v-on:contextmenu="ctx-stop">
+        <a href="https://facebook.com" @click="confirmFB">페이스북</a>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#example',
+            methods: {
+                ctxStop: function(e) {
+                    e.preventDefault();
+                },
+                confirmFB: function(e) {
+                    if (!confirm("페이스북으로 이동할까요?")) {
+                        e.preventDefault();
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
