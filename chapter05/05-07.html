@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <style>
+        .score {
+            border: solid 1px black;
+        }
+        
+        .warning {
+            background-color: aqua;
+            color: purple;
+        }
+        
+        .warnimage {
+            width: 18px;
+            height: 18px;
+            top: 5px;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="example">
+        <div>
+            <p>1부터 100까지만 입력 가능</p>
+            <div>
+                점수 : <input type="text" class="score" v-model.number="score" v-bind:class="info()" />
+                <img src="../images/foot.jpg" class="warnimage" v-show="info().warning" />
+            </div>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#example",
+            data: {
+                score: 0
+            },
+            methods: {
+                info: function() {
+                    if (this.score >= 1 && this.score <= 100) {
+                        return {
+                            warning: false
+                        }
+                    }
+
+                    return {
+                        warning: true
+                    };
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
