@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Vue</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<style>
+    #list {
+        border: 1px solid black;
+    }
+</style>
+<template id="listTemplate">
+    <div>
+        <table id="list">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>이름</th>
+                    <th>전화번호</th>
+                    <th>주소</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="contact in contacts">
+                    <td>{{contact.no}}</td>
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.tel}}</td>
+                    <td>{{contact.address}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>
+<script>
+    Vue.component('contactlist-component', {
+        template: '#listTemplate',
+        props: ['contacts']
+    })
+</script>
+
+<body>
+    <div id="app">
+        <h1>예방 접종</h1>
+        <hr>
+        <h3>1차 대상자</h3>
+        <contactlist-component :contacts="list1"></contactlist-component>
+        <h3>2차 대상자</h3>
+        <contactlist-component :contacts="list2"></contactlist-component>
+    </div>
+
+    <script>
+        Vue.config.devtools = true;
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                list1: [{
+                    "no": 3,
+                    "name": "kim",
+                    "tel": "010-1234-1234",
+                    "address": "seoul"
+                }],
+                list2: [{
+                    "no": 2,
+                    "name": "kim",
+                    "tel": "010-1234-1234",
+                    "address": "seoul"
+                }]
+            }
+        })
+    </script>
+</body>
+
+</html>
