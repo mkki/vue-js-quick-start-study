@@ -39,19 +39,22 @@
 </template>
 <script>
 import Constant from '../constant';
-import { mapState, mapMutations } from 'vuex';
+import { mapState } from 'vuex';
 import _ from 'lodash';
 
 export default {
     computed: mapState([ 'todolist' ]),
-    methods: _.extend({
+    methods: {
         checked (done) {
             if(done) return { checked: true }
             else return { checked: false };
+        },
+        deleteTodo(payload) {
+            this.$store.dispatch(Constant.DELETE_TODO, payload);
+        },
+        doneToggle(payload) {
+            this.$store.dispatch(Constant.DONE_TOGGLE, payload);
         }
-    },
-    mapMutations([
-        Constant.DELETE_TODO, Constant.DONE_TOGGLE
-    ]))
+    }
 }
 </script>
