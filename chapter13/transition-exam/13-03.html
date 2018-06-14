@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .box {
+            margin: 10px;
+        }
+        
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity .5s;
+        }
+        
+        .fade-enter,
+        .fade-leave-to {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="box">
+            <button @click="changeVisible">
+                토글
+            </button>
+        </div>
+        <div class="box">
+            <transition name="fade">
+                <img v-if="visible" src="https://raw.githubusercontent.com/stepanowon/vuejs_book/master/ch13/13.1/hill.jpg" alt="image">
+            </transition>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    Vue.config.devtools = true;
+
+    var vm = new Vue({
+        el: '#app',
+        data() {
+            return {
+                visible: true
+            }
+        },
+        methods: {
+            changeVisible() {
+                this.visible = !this.visible;
+            }
+        }
+    })
+</script>
+
+</html>
