@@ -1,0 +1,17 @@
+{
+    "name": "nuxttest",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "nuxt build",
+        "dev": "nuxt",
+        "start": "nuxt start",
+        "generate": "nuxt generate"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "nuxt": "^1.4.1"
+    }
+}
